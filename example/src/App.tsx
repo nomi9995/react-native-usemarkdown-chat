@@ -1,18 +1,13 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
-import UsemarkdownChat from 'react-native-usemarkdown-chat';
+import { StyleSheet, View, TextInput } from 'react-native';
+import useMarkdown from 'react-native-usemarkdown-chat';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    UsemarkdownChat.multiply(3, 7).then(setResult);
-  }, []);
-
+  const [text, setText] = useMarkdown();
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <TextInput style={styles.input} value={text} onChangeText={setText} />
     </View>
   );
 }
@@ -23,9 +18,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
+  input: {
+    width: '100%',
+    height: 100,
+    backgroundColor: 'gray',
+    fontSize: 30,
   },
 });
