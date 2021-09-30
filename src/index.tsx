@@ -4,7 +4,7 @@ import { useState, useCallback } from 'react';
 import 'text-encoding-polyfill';
 const utf8decoder = new TextDecoder();
 
-const BOLD = [240, 157, 144];
+const BOLD = [240, 157, 151];
 const ITELIC = [240, 157, 152];
 const UNDERLINE_SMALL = [204, 178];
 
@@ -36,7 +36,7 @@ const getCharArray = (
 
 const getOffet = (type: 'b' | 'i' | 'u' = 'b', isSmall: boolean) => {
   if (type === 'b') {
-    return isSmall ? 57 : 63;
+    return isSmall ? 77 : 83;
   } else if (type === 'i') {
     return isSmall ? 65 : 71;
   }
